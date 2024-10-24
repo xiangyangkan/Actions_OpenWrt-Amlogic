@@ -87,7 +87,11 @@ jobs:
         vim wget xmlto xxd zlib1g-dev
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
-        sudo timedatectl set-timezone "$TZ"
+        # 设置时区
+        sudo apt-get install -y tzdata
+        echo $TZ | sudo tee /etc/timezone
+        sudo ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+        sudo dpkg-reconfigure -f noninteractive tzdata
         echo "硬盘详情："
         df -Th
 
