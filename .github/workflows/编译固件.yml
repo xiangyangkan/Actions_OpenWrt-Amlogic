@@ -50,7 +50,6 @@ jobs:
         remove-android: 'true'
         remove-haskell: 'true'
         remove-codeql: 'true'
-        remove-docker-images: 'true'
           
     - name: 检查Actions
       uses: actions/checkout@v4
@@ -146,8 +145,8 @@ jobs:
       run: |
         echo "清理之前："
         df -hT
-        mkdir openwrt-armvirt
-        mkdir /workdir/upload
+        mkdir -p openwrt-armvirt
+        mkdir -p /workdir/upload
         cp openwrt/bin/targets/*/*/*.tar.gz /workdir/upload/
         mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
         echo -e "\n"
