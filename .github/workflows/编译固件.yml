@@ -38,18 +38,18 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         
-    - name: 最大化编译空间
-      uses: easimon/maximize-build-space@master
-      with:
-        root-reserve-mb: 4096
-        swap-size-mb: 1024
-        temp-reserve-mb: 200
-        build-mount-path: /workdir
-        overprovision-lvm: 'true'
-        remove-dotnet: 'true'
-        remove-android: 'true'
-        remove-haskell: 'true'
-        remove-codeql: 'true'
+#    - name: 最大化编译空间
+#      uses: easimon/maximize-build-space@master
+#      with:
+#        root-reserve-mb: 4096
+#        swap-size-mb: 1024
+#        temp-reserve-mb: 200
+#        build-mount-path: /workdir
+#        overprovision-lvm: 'true'
+#        remove-dotnet: 'true'
+#        remove-android: 'true'
+#        remove-haskell: 'true'
+#        remove-codeql: 'true'
           
     - name: 检查Actions
       uses: actions/checkout@v4
